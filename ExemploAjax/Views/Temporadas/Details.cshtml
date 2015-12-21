@@ -1,0 +1,98 @@
+﻿@model ExemploAjax.Models.Temporada
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Temporada</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Hotel.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hotel.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Quarto.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Quarto.Nome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomeTemporada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomeTemporada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Chegada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Chegada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saida)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saida)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiariaForaTemporada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiariaForaTemporada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiariaTemporada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiariaTemporada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiariaSabado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiariaSabado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiariaSemana)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiariaSemana)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DiariaMes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DiariaMes)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TemporadaId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

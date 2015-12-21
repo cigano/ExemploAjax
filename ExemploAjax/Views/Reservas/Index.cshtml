@@ -1,0 +1,65 @@
+﻿@model ExemploAjax.ViewModels.ReservasViewModel
+@using ExemploAjax.Models
+
+<h1>Reservas</h1>
+
+
+<div class="form-group">
+    @Html.LabelFor(model => model.QuartoId, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.DropDownListFor(model => model.QuartoId, ((IEnumerable<Quarto>)ViewBag.Quartos).Select(q => new SelectListItem
+       {
+           Text = q.Nome,
+           Value = q.QuartoId.ToString(),
+           Selected = (Model != null) && (Model.QuartoId == q.QuartoId)
+       }), "Selecione...", new { @class = "form-control" })
+        @Html.ValidationMessageFor(model => model.QuartoId, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.DataChegada, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.DataChegada, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.DataChegada, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.DataSaida, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.DataSaida, new { htmlAttributes = new { @class = "form-control" } })
+        @Html.ValidationMessageFor(model => model.DataSaida, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<div class="form-group">
+    @Html.LabelFor(model => model.ValorReserva, htmlAttributes: new { @class = "control-label col-md-2" })
+    <div class="col-md-10">
+        @Html.EditorFor(model => model.ValorReserva, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+        @Html.ValidationMessageFor(model => model.ValorReserva, "", new { @class = "text-danger" })
+    </div>
+</div>
+
+<button id="Calcular">Calcular</button>
+
+@section Scripts {
+    <script>
+        $(document).ready(function () {
+            $("#Calcular").click(function () {
+                $.ajax({
+                    url: "@Url.Action("CalcularReserva", "Reservas")",
+                    type: 'POST',
+                    data: {
+                        DataSaida: $("#DataSaida").val(),
+                        DataChegada: $("#DataChegada").val(),
+                        QuartoId: $("#QuartoId").val()
+                    },
+                    success: function (result) {
+                        $("#ValorReserva").val(result.ValorReserva);
+                    }
+                });
+            });
+        });
+    </script>
+}

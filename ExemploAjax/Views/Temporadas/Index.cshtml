@@ -1,0 +1,87 @@
+﻿@model IEnumerable<ExemploAjax.Models.Temporada>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Hotel.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Quarto.Nome)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomeTemporada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Chegada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saida)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiariaForaTemporada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiariaTemporada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiariaSabado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiariaSemana)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiariaMes)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hotel.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Quarto.Nome)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomeTemporada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Chegada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Saida)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiariaForaTemporada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiariaTemporada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiariaSabado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiariaSemana)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DiariaMes)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TemporadaId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TemporadaId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TemporadaId })
+        </td>
+    </tr>
+}
+
+</table>
